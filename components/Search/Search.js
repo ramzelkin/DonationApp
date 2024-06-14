@@ -36,7 +36,7 @@ const Search = props => {
   );
 };
 
-Search.defaultProps = {
+Search.default = {
   onSearch: () => {},
 };
 
