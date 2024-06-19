@@ -14,7 +14,9 @@ const Tab = props => {
   return (
     <Pressable
       style={[style.tab, props.isInactive && style.inactiveTab, tabWidth]}
-      onPress={() => props.onPress(props.tabId)}>
+      onPress={() => {
+        props.onPress(props.tabId);
+      }}>
       <Text
         onTextLayout={event => {
           setWidth(event.nativeEvent.lines[0].width);

@@ -16,11 +16,15 @@ import Tab from '../../components/Tab/Tab';
 import globalStyle from '../../assets/styles/globalStyle';
 import style from './style';
 import {updateSelectedCategoryId} from '../../redux/reducers/Categories';
+import {resetDonations} from '../../redux/reducers/Donations';
 
 const Home = () => {
   const user = useSelector(state => state.user);
   const dispatch = useDispatch();
   const categories = useSelector(state => state.categories);
+  const donations = useSelector(state => state.donations);
+
+  const [donationItems, setDonationItems] = useState([]);
 
   const [categoryPage, setCategoryPage] = useState(1);
   const [categoryList, setCategoryList] = useState([]);
@@ -36,6 +40,13 @@ const Home = () => {
     }
     return items.slice(startIndex, endIndex);
   };
+
+  useEffect(() => {
+    const items = donations.items.filter(value =>
+      value.categoryIds.includes(categories.selectedCategoryId),
+    );
+    setDonationItems(items);
+  }, [categories.selectedCategoryId]);
 
   useEffect(() => {
     setIsLoadingCategories(true);
