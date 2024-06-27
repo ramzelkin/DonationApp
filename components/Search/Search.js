@@ -16,6 +16,7 @@ const Search = props => {
 
   const handleSearch = searchValue => {
     setSearch(searchValue);
+    console.log(searchValue);
     props.onSearch(searchValue);
   };
 
@@ -35,11 +36,6 @@ const Search = props => {
       />
     </Pressable>
   );
-};
-
-Search.default = {
-  onSearch: () => {},
-  placeHolder: 'Search',
 };
 
 Search.propTypes = {

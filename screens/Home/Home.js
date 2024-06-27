@@ -12,13 +12,15 @@ import Header from '../../components/Header/Header';
 import {useDispatch, useSelector} from 'react-redux';
 import Search from '../../components/Search/Search';
 import Tab from '../../components/Tab/Tab';
+import {updateSelectedCategoryId} from '../../redux/reducers/Categories';
+import SingleDonationItem from '../../components/SingleDonationItem/SingleDonationItem';
+import {updateSelectedDonationId} from '../../redux/reducers/Donations';
+import {Routes} from '../../navigation/Routes';
 
 import globalStyle from '../../assets/styles/globalStyle';
 import style from './style';
-import {updateSelectedCategoryId} from '../../redux/reducers/Categories';
-import {resetDonations} from '../../redux/reducers/Donations';
 
-const Home = () => {
+const Home = ({navigation}) => {
   const user = useSelector(state => state.user);
   const dispatch = useDispatch();
   const categories = useSelector(state => state.categories);
@@ -69,12 +71,12 @@ const Home = () => {
           </View>
         </View>
         <View style={style.searchBox}>
-          <Search />
+          <Search placeHolder={'Search'} onSearch={() => {}} />
         </View>
         <Pressable style={style.highlightedImageContainer}>
           <Image
             style={style.image}
-            source={require('../../assets/images/cat1.png')}
+            source={require('../../assets/images/donation.jpg')}
             resizeMode={'contain'}
           />
         </Pressable>
@@ -115,6 +117,29 @@ const Home = () => {
             )}
           />
         </View>
+        {donationItems.length > 0 && (
+          <View style={style.donationItemsContainer}>
+            {donationItems.map(value => (
+              <View key={value.donationItemId} style={style.singleDonationItem}>
+                <SingleDonationItem
+                  onPress={selectedDonationId => {
+                    dispatch(updateSelectedDonationId(selectedDonationId));
+                    navigation.navigate(Routes.SingleDonationItem);
+                  }}
+                  donationItemId={value.donationItemId}
+                  uri={value.image}
+                  donationTitle={value.name}
+                  price={parseFloat(value.price)}
+                  badgeTitle={
+                    categories.categories.filter(
+                      val => val.categoryId === categories.selectedCategoryId,
+                    )[0].name
+                  }
+                />
+              </View>
+            ))}
+          </View>
+        )}
       </ScrollView>
     </SafeAreaView>
   );

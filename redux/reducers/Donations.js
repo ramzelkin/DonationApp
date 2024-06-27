@@ -6,7 +6,8 @@ const initialState = {
       name: 'Solar-powered lantern',
       description:
         'A lantern powered by solar energy, providing a sustainable an eco-friendly source of light to those in need',
-      image: 'https://unsplash.com/photos/blue-solar-panel-lot-Q3r3Ws-o54s',
+      image:
+        'https://www.treehugger.com/thmb/4yxv7u2AV2XtPr0Gb9WI63Imjpk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/solar-battery-and-lantern-in-park-close-up-side-view--1278723493-62ab2d005551488a9deba315f4e5b91b.jpg',
       donationItemId: 1,
       categoryIds: [1, 2],
       price: '1.34',
@@ -16,7 +17,7 @@ const initialState = {
       description:
         'A kit containing all essential school supplies, such as notebooks, pencils, and erasers',
       image:
-        'https://unsplash.com/photos/a-flat-lay-top-view-of-group-of-school-supplies-back-to-school-concept-brgSSy5sAM0',
+        'https://www.raymondgeddes.com/cdn/shop/articles/BacktoSchoolKit.jpg?v=1682075816',
       donationItemId: 2,
       categoryIds: [1, 3],
       price: '11.64',
@@ -26,7 +27,7 @@ const initialState = {
       description:
         'A warm winter coat to protect people from the cold and help them to stay warm during the winter months',
       image:
-        'https://unsplash.com/photos/a-person-wearing-a-red-jacket-with-a-ring-on-their-finger-FUvrWFUU6lU',
+        'https://www.travelandleisure.com/thmb/qY9WRQugI66y650ULLiX404J0Wg=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/ens-megawarm-jacket-tout-LFLBS-JKT122-ecc44694f0594700b3efe4481d68b2c0.jpg',
       donationItemId: 3,
       categoryIds: [1, 5],
       price: '13.08',
@@ -35,8 +36,7 @@ const initialState = {
       name: 'Non-perishable food',
       description:
         'Non-perishable food, such as canned goods and rice, to provide essential sustenance to those in need',
-      image:
-        'https://unsplash.com/photos/red-and-white-labeled-cans-Kml12zn10wI',
+      image: 'https://study.com/cimages/videopreview/pouqoxmmx1.jpg',
       donationItemId: 4,
       categoryIds: [1, 5],
       price: '11.64',
@@ -46,23 +46,23 @@ const initialState = {
       description:
         'First aid supplies, such as bandages and antiseptic wipes, to help people treat minor injuries',
       image:
-        'https://www.istockphoto.com/photo/womans-hand-using-a-first-aid-kit-gm1359564828-432873766',
+        'https://www.safetyandhealthmagazine.com/ext/resources/images/2022/05-may/J-J-Keller-WS-Pic.jpg?t=1649866589&width=500',
       donationItemId: 5,
-      categoryIds: [10],
+      categoryIds: [8],
       price: '11.50',
     },
     {
       name: 'Gardening tools',
       description:
         'Gardening tools, such as shovels ans rakes, for people to grow and maintain their own gardens',
-      image:
-        'https://unsplash.com/photos/green-metal-garden-shovel-filled-with-brown-soil-BduDcrySLKM',
+      image: 'https://cdn.mos.cms.futurecdn.net/Rx63edvSZCZ9uSg7egSDRU.jpg',
       donationItemId: 6,
       categoryIds: [2, 12],
       price: '13.40',
     },
   ],
   selectedDonationId: null,
+  selectedDonationInformation: {},
 };
 
 const Donations = createSlice({
@@ -74,6 +74,9 @@ const Donations = createSlice({
     },
     updateSelectedDonationId: (state, action) => {
       state.selectedDonationId = action.payload;
+      state.selectedDonationInformation = state.items.find(
+        item => item.donationItemId === action.payload,
+      );
     },
   },
 });
