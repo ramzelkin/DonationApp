@@ -29,7 +29,7 @@ const initialState = {
       image:
         'https://www.travelandleisure.com/thmb/qY9WRQugI66y650ULLiX404J0Wg=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/ens-megawarm-jacket-tout-LFLBS-JKT122-ecc44694f0594700b3efe4481d68b2c0.jpg',
       donationItemId: 3,
-      categoryIds: [1, 5],
+      categoryIds: [1, 4],
       price: '13.08',
     },
     {
@@ -57,7 +57,7 @@ const initialState = {
         'Gardening tools, such as shovels ans rakes, for people to grow and maintain their own gardens',
       image: 'https://cdn.mos.cms.futurecdn.net/Rx63edvSZCZ9uSg7egSDRU.jpg',
       donationItemId: 6,
-      categoryIds: [2, 12],
+      categoryIds: [2, 1],
       price: '13.40',
     },
   ],

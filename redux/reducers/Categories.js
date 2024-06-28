@@ -19,7 +19,7 @@ const initialSate = {
     },
     {
       categoryId: 5,
-      name: 'Houdehold goods',
+      name: 'Household goods',
     },
     {
       categoryId: 6,
