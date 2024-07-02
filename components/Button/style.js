@@ -4,7 +4,7 @@ import {
   horizontalScale,
   scaleFontSize,
   verticalScale,
-} from '../../assets/styles/scalling';
+} from '../../assets/styles/scaling';
 
 const style = StyleSheet.create({
   button: {

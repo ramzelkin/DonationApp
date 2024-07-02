@@ -3,7 +3,7 @@ import {
   horizontalScale,
   scaleFontSize,
   verticalScale,
-} from '../../assets/styles/scalling';
+} from '../../assets/styles/scaling';
 import {getFontFamily} from '../../assets/fonts/helper';
 
 const style = StyleSheet.create({

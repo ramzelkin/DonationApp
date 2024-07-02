@@ -3,7 +3,7 @@ import style from './style';
 import {TextInput, Pressable} from 'react-native';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {faSearch} from '@fortawesome/free-solid-svg-icons';
-import {scaleFontSize} from '../../assets/styles/scalling';
+import {scaleFontSize} from '../../assets/styles/scaling';
 import PropTypes from 'prop-types';
 
 const Search = props => {
